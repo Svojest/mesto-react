@@ -1,0 +1,8 @@
+.page {
+    background-color: #000;
+    overflow: overlay;
+    font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
