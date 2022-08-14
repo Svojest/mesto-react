@@ -1,5 +1,4 @@
-// По заданию не нужно экспортировать класс Api, но почему-то не проходит тесты на проверку, если не экспортирую класс Api
-export class Api {
+class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
