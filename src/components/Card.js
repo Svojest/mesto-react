@@ -1,6 +1,10 @@
 import React from 'react';
 
 export default function Card(props) {
+    function handleClick() {
+        props.onCardClick(props.card);
+    }
+
     return (
         <li className="card">
             <button aria-label="Удалить" className="card__bin" type="button"></button>
@@ -14,7 +18,4 @@ export default function Card(props) {
             </div>
         </li>
     );
-    function handleClick() {
-        props.onCardClick(props.card);
-    }
 }

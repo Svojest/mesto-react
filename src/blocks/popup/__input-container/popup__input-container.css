@@ -1,24 +1,23 @@
 .popup__input-container {
-  display: flex;
-  flex-direction: column;
-  border: 0;
-  padding: 0;
-  margin: 75px 22px 0;
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    padding: 75px 0 45px 0;
+    margin: 0;
 }
 
-
 @media screen and (min-width: 620px) {
-  .popup__input-container {
-    margin: 40px 36px 0;
-  }
+    .popup__input-container {
+        padding: 54px 0 48px 0;
+    }
 }
 
 .popup__input-container_confirm {
-  margin: 0 22px 0;
+    margin: 0 22px 0;
 }
 
 @media screen and (min-width: 620px) {
-  .popup__input-container_confirm {
-    margin: 0 36px 0;
-  }
+    .popup__input-container_confirm {
+        margin: 0 36px 0;
+    }
 }

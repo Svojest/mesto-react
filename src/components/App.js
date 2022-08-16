@@ -6,10 +6,29 @@ import Main from './Main';
 import PopupWithForm from './PopupWithForm';
 
 function App() {
-    const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
-    const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
-    const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+    const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+    const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
     const [selectedCard, setSelectedCard] = React.useState(null);
+
+    function handleEditProfileClick() {
+        setIsEditProfilePopupOpen(true);
+    }
+    function handleAddPlaceClick() {
+        setIsAddPlacePopupOpen(true);
+    }
+    function handleEditAvatarClick() {
+        setIsEditAvatarPopupOpen(true);
+    }
+    function handleCardClick(card) {
+        setSelectedCard(card);
+    }
+    function closeAllPopups() {
+        setIsEditProfilePopupOpen(false);
+        setIsAddPlacePopupOpen(false);
+        setIsEditAvatarPopupOpen(false);
+        setSelectedCard(null);
+    }
 
     return (
         <div className="page">
@@ -27,6 +46,7 @@ function App() {
                 title="Редактировать профиль"
                 isOpen={isEditProfilePopupOpen}
                 onClose={closeAllPopups}
+                buttonText="Сохранить"
             >
                 <fieldset className="popup__input-container">
                     <input
@@ -51,13 +71,16 @@ function App() {
                         required={true}
                     />
                     <span className="popup__input-error form-about-error"></span>
-                    <button className="popup__button popup__button_type_save" type="submit" aria-label="Сохранить">
-                        Сохранить
-                    </button>
                 </fieldset>
             </PopupWithForm>
 
-            <PopupWithForm name="form-add" title="Новое место" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+            <PopupWithForm
+                name="form-add"
+                title="Новое место"
+                isOpen={isAddPlacePopupOpen}
+                onClose={closeAllPopups}
+                buttonText="Добавить"
+            >
                 <fieldset className="popup__input-container">
                     <input
                         type="text"
@@ -79,13 +102,6 @@ function App() {
                         required={true}
                     />
                     <span className="popup__input-error card-url-error"></span>
-                    <button
-                        type="submit"
-                        className="popup__button popup__button_type_save popup__button_type_add"
-                        aria-label="Создать"
-                    >
-                        Создать
-                    </button>
                 </fieldset>
             </PopupWithForm>
 
@@ -94,6 +110,7 @@ function App() {
                 title="Обновить аватар"
                 isOpen={isEditAvatarPopupOpen}
                 onClose={closeAllPopups}
+                buttonText="Сохранить"
             >
                 <fieldset className="popup__input-container">
                     <input
@@ -105,44 +122,14 @@ function App() {
                         required={true}
                     />
                     <span className="popup__input-error avatar-url-error"></span>
-                    <button className="popup__button popup__button_type_save" type="submit" aria-label="Сохранить">
-                        Сохранить
-                    </button>
                 </fieldset>
             </PopupWithForm>
 
-            <PopupWithForm name="form-delete" title="Вы уверены?" onClose={closeAllPopups}>
-                <fieldset className="popup__input-container popup__input-container_confirm">
-                    <button
-                        type="submit"
-                        className="popup__button popup__button_type_save popup__button_type_confirm"
-                        aria-label="Да"
-                    >
-                        Да
-                    </button>
-                </fieldset>
+            <PopupWithForm name="form-delete" title="Вы уверены?" onClose={closeAllPopups} buttonText="Да">
+                <fieldset className="popup__input-container popup__input-container_confirm"></fieldset>
             </PopupWithForm>
         </div>
     );
-
-    function handleEditProfileClick() {
-        setEditProfilePopupOpen(true);
-    }
-    function handleAddPlaceClick() {
-        setAddPlacePopupOpen(true);
-    }
-    function handleEditAvatarClick() {
-        setEditAvatarPopupOpen(true);
-    }
-    function handleCardClick(card) {
-        setSelectedCard(card);
-    }
-    function closeAllPopups() {
-        setEditProfilePopupOpen(false);
-        setAddPlacePopupOpen(false);
-        setEditAvatarPopupOpen(false);
-        setSelectedCard(null);
-    }
 }
 
 export default App;

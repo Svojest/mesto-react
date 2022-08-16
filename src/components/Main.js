@@ -9,13 +9,17 @@ export default function Main(props) {
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([userData, userCards]) => {
-            setUserName(userData.name);
-            setUserAbout(userData.about);
-            setUserAvatar(userData.avatar);
-            setCards(userCards);
-        });
-    });
+        Promise.all([api.getUserInfo(), api.getInitialCards()])
+            .then(([userData, userCards]) => {
+                setUserName(userData.name);
+                setUserAbout(userData.about);
+                setUserAvatar(userData.avatar);
+                setCards(userCards);
+            })
+            .catch(() => {
+                console.log('Произошла ошибка');
+            });
+    }, []);
 
     return (
         <>
@@ -55,14 +59,14 @@ export default function Main(props) {
                         aria-label="add"
                     ></button>
                 </section>
+                <section className="gallery">
+                    <ul className="gallery__item">
+                        {cards.map((card, id) => (
+                            <Card card={card} key={id} onCardClick={props.onCardClick} />
+                        ))}
+                    </ul>
+                </section>
             </main>
-            <section className="gallery">
-                <ul className="gallery__item">
-                    {cards.map((card, i) => (
-                        <Card card={card} key={i} onCardClick={props.onCardClick} />
-                    ))}
-                </ul>
-            </section>
         </>
     );
 }
