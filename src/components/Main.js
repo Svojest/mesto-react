@@ -22,51 +22,44 @@ export default function Main(props) {
     }, []);
 
     return (
-        <>
-            <main className="main">
-                <section className="profile">
-                    <div className="profile__container">
-                        <div className="profile__container-avatar">
-                            <img src={userAvatar} alt="Аватар пользователя" className="profile__image" />
+        <main className="main">
+            <section className="profile">
+                <div className="profile__container">
+                    <div className="profile__container-avatar">
+                        <img src={userAvatar} alt="Аватар пользователя" className="profile__image" />
+                        <button
+                            onClick={props.onEditAvatar}
+                            className="profile__btn-avatar"
+                            type="button"
+                            name="update-avatar"
+                            id="update-avatar"
+                            aria-label="avatar"
+                        ></button>
+                    </div>
+                    <div className="profile__info">
+                        <div className="profile__title-group">
+                            <h1 className="profile__title">{userName}</h1>
                             <button
-                                onClick={props.onEditAvatar}
-                                className="profile__btn-avatar"
+                                onClick={props.onEditProfile}
+                                className="profile__btn-edit"
                                 type="button"
-                                name="update-avatar"
-                                id="update-avatar"
-                                aria-label="avatar"
+                                name="edit-profile"
+                                id="edit-profile"
+                                aria-label="edit"
                             ></button>
                         </div>
-                        <div className="profile__info">
-                            <div className="profile__title-group">
-                                <h1 className="profile__title">{userName}</h1>
-                                <button
-                                    onClick={props.onEditProfile}
-                                    className="profile__btn-edit"
-                                    type="button"
-                                    name="edit-profile"
-                                    id="edit-profile"
-                                    aria-label="edit"
-                                ></button>
-                            </div>
-                            <p className="profile__subtitle">{userAbout}</p>
-                        </div>
+                        <p className="profile__subtitle">{userAbout}</p>
                     </div>
-                    <button
-                        onClick={props.onAddPlace}
-                        className="profile__btn-add"
-                        type="button"
-                        aria-label="add"
-                    ></button>
-                </section>
-                <section className="gallery">
-                    <ul className="gallery__item">
-                        {cards.map((card, id) => (
-                            <Card card={card} key={id} onCardClick={props.onCardClick} />
-                        ))}
-                    </ul>
-                </section>
-            </main>
-        </>
+                </div>
+                <button onClick={props.onAddPlace} className="profile__btn-add" type="button" aria-label="add"></button>
+            </section>
+            <section className="gallery">
+                <ul className="gallery__item">
+                    {cards.map((card, _id) => (
+                        <Card card={card} key={_id} onCardClick={props.onCardClick} />
+                    ))}
+                </ul>
+            </section>
+        </main>
     );
 }

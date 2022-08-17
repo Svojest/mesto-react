@@ -125,9 +125,7 @@ function App() {
                 </fieldset>
             </PopupWithForm>
 
-            <PopupWithForm name="form-delete" title="Вы уверены?" onClose={closeAllPopups} buttonText="Да">
-                <fieldset className="popup__input-container popup__input-container_confirm"></fieldset>
-            </PopupWithForm>
+            <PopupWithForm name="form-delete" title="Вы уверены?" onClose={closeAllPopups} buttonText="Да" />
         </div>
     );
 }
