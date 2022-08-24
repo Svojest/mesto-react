@@ -1,3 +1,13 @@
 .card__like_active {
-  background-image: url(../../../../images/black-like.svg);
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    width: 22px;
+    height: 19px;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-image: url(../../../../images/black-like.svg);
 }
