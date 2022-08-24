@@ -32,7 +32,7 @@ export default function Card({ onCardClick, onCardLike, onCardDelete, card }) {
                 aria-label="Удалить"
                 className={cardDeleteButtonClassName}
                 type="button"
-            ></button>
+            />
             <img onClick={handleClick} src={card.link} alt={card.name} className="card__image" />
             <div className="card__info">
                 <h2 className="card__title">{card.name}</h2>
@@ -42,7 +42,7 @@ export default function Card({ onCardClick, onCardLike, onCardDelete, card }) {
                         aria-label="Нравится"
                         className={cardLikeButtonClassName}
                         type="button"
-                    ></button>
+                    />
                     <div className="card__like-count">{card.likes.length}</div>
                 </div>
             </div>

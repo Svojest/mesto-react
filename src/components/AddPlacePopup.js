@@ -1,17 +1,14 @@
-import { CurrentUserContext } from 'context/CurrentUserContext';
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
 export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
-    const currentUser = React.useContext(CurrentUserContext);
-
     const [nameCard, setNameCard] = React.useState('');
     const [linkCard, setLinkCard] = React.useState('');
 
     React.useEffect(() => {
         setNameCard('');
         setLinkCard('');
-    }, [currentUser]);
+    }, [isOpen]);
 
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
@@ -45,7 +42,7 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
                     maxLength={30}
                     required={true}
                 />
-                <span className="popup__input-error card-name-error"></span>
+                <span className="popup__input-error card-name-error" />
                 <input
                     value={linkCard || ''}
                     onChange={(e) => setLinkCard(e.target.value)}
@@ -56,7 +53,7 @@ export default function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
                     name="card-url"
                     required={true}
                 />
-                <span className="popup__input-error card-url-error"></span>
+                <span className="popup__input-error card-url-error" />
             </fieldset>
         </PopupWithForm>
     );

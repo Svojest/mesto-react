@@ -46,7 +46,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     maxLength={40}
                     required={true}
                 />
-                <span className="popup__input-error form-name-error"></span>
+                <span className="popup__input-error form-name-error" />
                 <input
                     value={about || ''}
                     onChange={(e) => setAbout(e.target.value)}
@@ -59,7 +59,7 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     maxLength={200}
                     required={true}
                 />
-                <span className="popup__input-error form-about-error"></span>
+                <span className="popup__input-error form-about-error" />
             </fieldset>
         </PopupWithForm>
     );

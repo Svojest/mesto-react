@@ -28,7 +28,7 @@ export default function Main({
                             name="update-avatar"
                             id="update-avatar"
                             aria-label="avatar"
-                        ></button>
+                        />
                     </div>
                     <div className="profile__info">
                         <div className="profile__title-group">
@@ -40,19 +40,19 @@ export default function Main({
                                 name="edit-profile"
                                 id="edit-profile"
                                 aria-label="edit"
-                            ></button>
+                            />
                         </div>
                         <p className="profile__subtitle">{currentUser.about}</p>
                     </div>
                 </div>
-                <button onClick={onAddPlace} className="profile__btn-add" type="button" aria-label="add"></button>
+                <button onClick={onAddPlace} className="profile__btn-add" type="button" aria-label="add" />
             </section>
             <section className="gallery">
                 <ul className="gallery__item">
-                    {cards.map((card, _id) => (
+                    {cards.map((card) => (
                         <Card
                             card={card}
-                            key={_id}
+                            key={card._id}
                             onCardClick={onCardClick}
                             onCardDelete={onCardDelete}
                             onCardLike={onCardLike}

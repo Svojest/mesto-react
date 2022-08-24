@@ -12,7 +12,7 @@ export default function ImagePopup(props) {
                     className="popup__button popup__button_type_close"
                     id="close-popupImage"
                     aria-label="reset"
-                ></button>
+                />
             </div>
         </div>
     );
